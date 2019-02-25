@@ -1,0 +1,263 @@
+/* font-family: 'Lato', sans-serif;
+
+font-family: 'Quicksand', sans-serif;
+
+font-family: 'Droid Sans Bold', arial;
+
+font-family: 'Droid Sans', arial; */
+
+*{
+    margin: 0;
+    padding: 0;
+/*     border: 1px solid red; */
+    box-sizing: border-box;
+}
+
+.header{
+    width: 100%; /* ширина шапки */
+    min-height: 916px; /* минимальная высота шапки */
+    background: url(../img/header-bg-new.png) center center;
+    /* background-color: black;  */
+    background-repeat: no-repeat; /* фон не повторяется */
+    background-size: 100% 916px;
+    .headerInside{
+        /* background: red; */
+        width: 960px; /* ширина контента в шапке */
+        min-height: inherit; /* высота контента в шапке */
+        margin: 0 auto; /* выравнивание по центру страницы */
+        padding: 22px 0px 0 22px;
+        .navBarWrapper{
+            display: flex; /* располагаем блоки по горизонтали с помощью flex */
+            margin-bottom: 123px;
+            .logo{
+                img{
+                    transition-duration: 1s;
+                    &:hover{
+                        border-radius: 50px;
+                        transition-duration: 1s;
+                        box-shadow: 2px 6px 10px -5px black;
+                    }
+                }
+            }
+            .menu{
+                padding: 25px 0 0 0;
+                margin-left: auto; /* прижимаем правый блок к правому краю */
+                .topMenu{
+                    list-style: none; /* убираем маркеры списка */
+                    display: flex; /* располагаем блоки(элементы LI списка) по горизонтали с помощью flex */
+                    justify-content: center; /* отцентруем блоки */
+                    li{
+                        position: relative; /* позиционируем списки RELATIVE, чтобы потом подменю задать ABSOLUTE */
+                        a{
+                            display: block; /* делаем ссылки блочными элементавми */
+                            font-size: 15px; 
+                            font-family: 'Lato', sans-serif;
+                            line-height: 20px;
+                            color: #ffffff;
+                            text-decoration: none; /* убираем подчеркивание у ссылок */
+                            margin-right: 30px; /* расстояние справа между ссылками(блоками) */
+                            &:hover{
+                                color: #000;
+                            }
+                            i{
+                                padding: 0 0 0 15px;
+                            }
+                        }
+                        .subMenu{
+                            list-style: none; /* убираем маркеры списка */
+                            position: absolute; /* позиционируем списки абсолютно, относительно тега LI, который выше описани и позиционируется, как RELATIVE */
+                            min-width: 150px; /* задаем ширинку строки в списке */
+                            li{
+                                a{
+                                    font-size: 12px;
+                                    font-family: 'Lato', sans-serif;
+                                    line-height: 20px;
+                                    color: #ffffff;
+                                    &:hover{
+                                        color: #000;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .headerText{
+        width: 396px;
+        .title{
+            text-shadow: 0 1px 1px #000000;
+            color: #ffffff;
+            font-family: 'Lato', sans-serif;
+            font-size: 52px;
+            font-weight: 300;
+            line-height: 62px;
+            margin-bottom: 20px;
+        }
+        .titleDesc{
+            text-shadow: 0 1px 1px #000000;
+            color: #ffffff;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 25px;
+        }
+    }
+}
+
+/* _____________________________________________________________________
+ФРАГМЕНТ, ЧТОБЫ СКРЫВАТЬ ПОДМЕНЮ И ЧТОБЫ ПРИ НАВЕДЕНИИ ОНО ПОЯВЛЯЛОСЬ */
+.subMenu{
+    display: none;
+}
+.topMenu li:hover .subMenu{
+    display: block;
+}
+/* __________________________________________________________________ */
+
+.container{
+    width: 100%; 
+    min-height: 467px;
+    .content{
+        width: 960px;
+        min-height: inherit;
+        margin: 0 auto; /* выравнивание по центру страницы */
+        display: flex;
+        justify-content: space-between;
+        .leftContent{
+            position: relative;
+            width: 266px;
+            margin-top: 72px;
+            .leftText{
+                color: #fe992a;
+                font-family: 'Lato', sans-serif;
+                font-size: 20px;
+                font-style: italic;
+                line-height: 28px;
+                margin-bottom: 89px;
+                &::before{
+                    content: '\201c';
+                    font-family: 'Lato', sans-serif;
+                    color: #fe992a;
+                    font-size: 48px;
+                    font-style: italic;
+                    line-height: 28px;
+                    position: absolute;
+                    top: -19px;
+                    left: -5px;
+                }
+                &::after{
+                    content: '\201e';
+                    font-family: 'Lato', sans-serif;
+                    color: #fe992a;
+                    font-size: 48px;
+                    font-style: italic;
+                    line-height: 28px;
+                    position: absolute;
+                    top: 147px;
+                    left: 70px;
+                }
+            }
+            .btnBlcok{
+                display: flex;
+                margin-left: 186px;
+                a{
+                    width: 30px;
+                    height: 30px;
+                    background-color: #fe992a;
+                    text-decoration: none;
+                    text-align: center;
+                    color: #ffffff;
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 11px;
+                    font-weight: 700;
+                    line-height: 30px;
+                    &:first-child{
+                    margin-right: 1px;
+                    }
+                    &:hover{
+                        background-color: #ffba6e;
+                    }
+                }
+            }
+        }
+        .rightContent{
+            border-left: 1px solid #eaeaea;
+            margin-top: 72px;
+            width: 649px;
+            height: 297px;
+            padding-left: 59px;
+            .rightTitle{
+                color: #fe992a;
+                font-family: 'Lato', sans-serif;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 24px;
+                margin-bottom: 27px;
+            }
+            .rightText{
+                color: #737c85;
+                font-family: "Arial", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 28px;
+            }
+        }
+    }
+}
+
+.footer{
+    width: 100%;
+    min-height: 474px;
+    background: #e6716f;
+    .footerInside{
+        width: 960px; 
+        min-height: inherit; 
+        margin: 0 auto;
+        padding-top: 40px;
+        .mainWrapper{
+            width: 960px;
+            display: flex;
+            justify-content: space-between;
+            ul{
+                list-style: none;
+                font-size: 12px;
+                font-family:'Droid Sans', arial;
+                line-height: 24px;
+                color: #ffffff;
+                &:first-child{
+                    margin-right: 129px;
+                }
+            }
+            .contacts{
+                .telephone{
+                    margin-bottom: 23px;
+                }
+            }
+            .firstWordFooter{
+                font-weight: 700;
+                font-family: 'Droid Sans Bold', arial;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
