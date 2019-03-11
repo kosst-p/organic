@@ -5,6 +5,14 @@ font-family: 'Quicksand', sans-serif;
 font-family: 'Droid Sans Bold', arial;
 
 font-family: 'Droid Sans', arial; */
+/* @media (min-width: ){
+
+}
+
+@media (min-width: ) and (max-width){
+
+
+} */
 * {
   margin: 0;
   padding: 0;
@@ -14,28 +22,56 @@ font-family: 'Droid Sans', arial; */
 .header {
   width: 100%;
   /* ширина шапки */
-  min-height: 916px;
-  /* минимальная высота шапки */
   background: url(../img/header-bg-new.png) center center;
-  /* background-color: black;  */
+  /*     background-color: black;  */
   background-repeat: no-repeat;
   /* фон не повторяется */
-  background-size: 100% 916px;
+}
+@media (min-width: 960px) {
+  .header {
+    background-size: 100% 916px;
+    min-height: 916px;
+    /* минимальная высота шапки */
+  }
 }
 .header .headerInside {
   /* background: red; */
-  width: 960px;
+  width: 100%;
   /* ширина контента в шапке */
   min-height: inherit;
   /* высота контента в шапке */
   margin: 0 auto;
   /* выравнивание по центру страницы */
-  padding: 22px 0px 0 22px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 960px) {
+  .header .headerInside {
+    width: 960px;
+    padding: 22px 0px 0 22px;
+  }
 }
 .header .headerInside .navBarWrapper {
   display: flex;
   /* располагаем блоки по горизонтали с помощью flex */
-  margin-bottom: 123px;
+  flex-direction: column;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-content: center;
+}
+@media (min-width: 960px) {
+  .header .headerInside .navBarWrapper {
+    flex-direction: row;
+    margin-bottom: 123px;
+  }
+}
+.header .headerInside .navBarWrapper .logo {
+  text-align: center;
+}
+@media (min-width: 960px) {
+  .header .headerInside .navBarWrapper .logo {
+    text-align: start;
+  }
 }
 .header .headerInside .navBarWrapper .logo img {
   transition-duration: 1s;
@@ -46,17 +82,28 @@ font-family: 'Droid Sans', arial; */
   box-shadow: 2px 6px 10px -5px black;
 }
 .header .headerInside .navBarWrapper .menu {
-  padding: 25px 0 0 0;
-  margin-left: auto;
-  /* прижимаем правый блок к правому краю */
+  padding: 50px 0 0 0;
+}
+@media (min-width: 960px) {
+  .header .headerInside .navBarWrapper .menu {
+    margin-left: auto;
+    /* прижимаем правый блок к правому краю */
+    padding: 25px 0 0 0;
+  }
 }
 .header .headerInside .navBarWrapper .menu .topMenu {
   list-style: none;
   /* убираем маркеры списка */
-  display: flex;
-  /* располагаем блоки(элементы LI списка) по горизонтали с помощью flex */
-  justify-content: center;
-  /* отцентруем блоки */
+  display: none;
+}
+@media (min-width: 664px) {
+  .header .headerInside .navBarWrapper .menu .topMenu {
+    justify-content: center;
+    /* отцентруем блоки */
+    display: block;
+    display: flex;
+    /* располагаем блоки(элементы LI списка) по горизонтали с помощью flex */
+  }
 }
 .header .headerInside .navBarWrapper .menu .topMenu li {
   position: relative;
@@ -97,8 +144,27 @@ font-family: 'Droid Sans', arial; */
 .header .headerInside .navBarWrapper .menu .topMenu li .subMenu li a:hover {
   color: #000;
 }
+.header .headerInside .navBarWrapper .menu .menuForPhone {
+  display: block;
+}
+@media (min-width: 522px) {
+  .header .headerInside .navBarWrapper .menu .menuForPhone {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (min-width: 663px) {
+  .header .headerInside .navBarWrapper .menu .menuForPhone {
+    display: none;
+  }
+}
 .header .headerText {
-  width: 396px;
+  width: 100%;
+}
+@media (min-width: 960px) {
+  .header .headerText {
+    width: 396px;
+  }
 }
 .header .headerText .title {
   text-shadow: 0 1px 1px #000000;
@@ -108,6 +174,12 @@ font-family: 'Droid Sans', arial; */
   font-weight: 300;
   line-height: 62px;
   margin-bottom: 20px;
+  text-align: center;
+}
+@media (min-width: 960px) {
+  .header .headerText .title {
+    text-align: start;
+  }
 }
 .header .headerText .titleDesc {
   text-shadow: 0 1px 1px #000000;
@@ -116,6 +188,12 @@ font-family: 'Droid Sans', arial; */
   font-size: 14px;
   font-weight: 400;
   line-height: 25px;
+  text-align: center;
+}
+@media (min-width: 960px) {
+  .header .headerText .titleDesc {
+    text-align: start;
+  }
 }
 /* _____________________________________________________________________
 ФРАГМЕНТ, ЧТОБЫ СКРЫВАТЬ ПОДМЕНЮ И ЧТОБЫ ПРИ НАВЕДЕНИИ ОНО ПОЯВЛЯЛОСЬ */
@@ -128,20 +206,40 @@ font-family: 'Droid Sans', arial; */
 /* __________________________________________________________________ */
 .container {
   width: 100%;
-  min-height: 467px;
+  /*     background-color: green; */
+}
+@media (min-width: 960px) {
+  .container {
+    min-height: 467px;
+  }
 }
 .container .content {
-  width: 960px;
+  width: 100%;
   min-height: inherit;
-  margin: 0 auto;
-  /* выравнивание по центру страницы */
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+@media (min-width: 960px) {
+  .container .content {
+    flex-direction: row;
+    width: 960px;
+    margin: 0 auto;
+    /* выравнивание по центру страницы */
+  }
 }
 .container .content .leftContent {
   position: relative;
   width: 266px;
   margin-top: 72px;
+  margin-bottom: 50px;
+}
+@media (min-width: 960px) {
+  .container .content .leftContent {
+    margin-bottom: 0;
+  }
 }
 .container .content .leftContent .leftText {
   color: #fe992a;
@@ -197,10 +295,17 @@ font-family: 'Droid Sans', arial; */
 }
 .container .content .rightContent {
   border-left: 1px solid #eaeaea;
-  margin-top: 72px;
-  width: 649px;
-  height: 297px;
-  padding-left: 59px;
+  width: 100%;
+  padding-left: 10px;
+}
+@media (min-width: 960px) {
+  .container .content .rightContent {
+    flex-direction: row;
+    width: 649px;
+    margin-top: 72px;
+    padding-left: 59px;
+    height: 297px;
+  }
 }
 .container .content .rightContent .rightTitle {
   color: #fe992a;
@@ -216,22 +321,55 @@ font-family: 'Droid Sans', arial; */
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
+  display: none;
+}
+@media (min-width: 960px) {
+  .container .content .rightContent .rightText {
+    display: block;
+  }
+}
+.container .content .rightContent .forPhone {
+  display: block;
+  text-align: justify;
+}
+@media (min-width: 960px) {
+  .container .content .rightContent .forPhone {
+    display: none;
+  }
 }
 .footer {
   width: 100%;
-  min-height: 474px;
   background: #e6716f;
 }
+@media (min-width: 960px) {
+  .footer {
+    min-height: 474px;
+  }
+}
 .footer .footerInside {
-  width: 960px;
+  width: 100%;
   min-height: inherit;
   margin: 0 auto;
   padding-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 960px) {
+  .footer .footerInside {
+    width: 960px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 .footer .footerInside .mainWrapper {
-  width: 960px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+@media (min-width: 960px) {
+  .footer .footerInside .mainWrapper {
+    width: 960px;
+  }
 }
 .footer .footerInside .mainWrapper ul {
   list-style: none;
@@ -240,8 +378,24 @@ font-family: 'Droid Sans', arial; */
   line-height: 24px;
   color: #ffffff;
 }
-.footer .footerInside .mainWrapper ul:first-child {
-  margin-right: 129px;
+@media (min-width: 960px) {
+  .footer .footerInside .mainWrapper ul:first-child {
+    margin-right: 129px;
+  }
+}
+.footer .footerInside .mainWrapper .contacts {
+  width: 100%;
+}
+@media (min-width: 370px) and (max-width: 960px) {
+  .footer .footerInside .mainWrapper .contacts {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 960px) {
+  .footer .footerInside .mainWrapper .contacts {
+    width: auto;
+  }
 }
 .footer .footerInside .mainWrapper .contacts .telephone {
   margin-bottom: 23px;
@@ -249,4 +403,12 @@ font-family: 'Droid Sans', arial; */
 .footer .footerInside .mainWrapper .firstWordFooter {
   font-weight: 700;
   font-family: 'Droid Sans Bold', arial;
+}
+.footer .footerInside .mainWrapper .forBig {
+  display: none;
+}
+@media (min-width: 960px) {
+  .footer .footerInside .mainWrapper .forBig {
+    display: block;
+  }
 }

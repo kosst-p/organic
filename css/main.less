@@ -6,6 +6,16 @@ font-family: 'Droid Sans Bold', arial;
 
 font-family: 'Droid Sans', arial; */
 
+
+/* @media (min-width: ){
+
+}
+
+@media (min-width: ) and (max-width){
+
+
+} */
+
 *{
     margin: 0;
     padding: 0;
@@ -15,21 +25,39 @@ font-family: 'Droid Sans', arial; */
 
 .header{
     width: 100%; /* ширина шапки */
-    min-height: 916px; /* минимальная высота шапки */
     background: url(../img/header-bg-new.png) center center;
-    /* background-color: black;  */
+/*     background-color: black;  */
     background-repeat: no-repeat; /* фон не повторяется */
-    background-size: 100% 916px;
+    @media (min-width: 960px){
+        background-size: 100% 916px;
+        min-height: 916px; /* минимальная высота шапки */
+    }
     .headerInside{
         /* background: red; */
-        width: 960px; /* ширина контента в шапке */
+        width: 100%; /* ширина контента в шапке */
         min-height: inherit; /* высота контента в шапке */
         margin: 0 auto; /* выравнивание по центру страницы */
-        padding: 22px 0px 0 22px;
+        padding-left: 15px;
+        padding-right: 15px;
+        @media (min-width: 960px){
+            width:960px;
+            padding: 22px 0px 0 22px;
+        }
         .navBarWrapper{
             display: flex; /* располагаем блоки по горизонтали с помощью flex */
-            margin-bottom: 123px;
+            flex-direction: column;
+            margin-bottom: 50px;
+            justify-content: center;
+            align-content: center;
+            @media (min-width: 960px){
+                flex-direction: row;
+                margin-bottom: 123px;
+            }
             .logo{
+                text-align: center;
+                @media (min-width: 960px){
+                    text-align: start;
+                }
                 img{
                     transition-duration: 1s;
                     &:hover{
@@ -40,12 +68,19 @@ font-family: 'Droid Sans', arial; */
                 }
             }
             .menu{
-                padding: 25px 0 0 0;
-                margin-left: auto; /* прижимаем правый блок к правому краю */
+                padding: 50px 0 0 0;
+                @media (min-width: 960px){
+                    margin-left: auto; /* прижимаем правый блок к правому краю */
+                    padding: 25px 0 0 0;
+                }
                 .topMenu{
                     list-style: none; /* убираем маркеры списка */
-                    display: flex; /* располагаем блоки(элементы LI списка) по горизонтали с помощью flex */
-                    justify-content: center; /* отцентруем блоки */
+                    display: none;
+                    @media (min-width: 664px){
+                        justify-content: center; /* отцентруем блоки */
+                        display: block;
+                        display: flex; /* располагаем блоки(элементы LI списка) по горизонтали с помощью flex */
+                    }
                     li{
                         position: relative; /* позиционируем списки RELATIVE, чтобы потом подменю задать ABSOLUTE */
                         a{
@@ -81,11 +116,24 @@ font-family: 'Droid Sans', arial; */
                         }
                     }
                 }
+                .menuForPhone{
+                    display: block;
+                    @media (min-width: 522px){
+                        display: flex;
+                        justify-content: center; 
+                    }
+                    @media (min-width: 663px){
+                        display: none;
+                    }
+                }
             }
         }
     }
     .headerText{
-        width: 396px;
+        width: 100%;
+        @media (min-width: 960px){
+            width: 396px;
+        }
         .title{
             text-shadow: 0 1px 1px #000000;
             color: #ffffff;
@@ -94,6 +142,10 @@ font-family: 'Droid Sans', arial; */
             font-weight: 300;
             line-height: 62px;
             margin-bottom: 20px;
+            text-align: center;
+            @media (min-width: 960px){
+                text-align: start;
+            }
         }
         .titleDesc{
             text-shadow: 0 1px 1px #000000;
@@ -102,6 +154,10 @@ font-family: 'Droid Sans', arial; */
             font-size: 14px;
             font-weight: 400;
             line-height: 25px;
+            text-align: center;
+            @media (min-width: 960px){
+                text-align: start;
+            }
         }
     }
 }
@@ -118,17 +174,31 @@ font-family: 'Droid Sans', arial; */
 
 .container{
     width: 100%; 
-    min-height: 467px;
+/*     background-color: green; */
+    @media (min-width: 960px){
+        min-height: 467px;
+    }
     .content{
-        width: 960px;
+        width: 100%;
         min-height: inherit;
-        margin: 0 auto; /* выравнивание по центру страницы */
+        padding-left: 15px;
+        padding-right: 15px;
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
+        @media (min-width: 960px){
+            flex-direction: row;
+            width: 960px;
+            margin: 0 auto; /* выравнивание по центру страницы */
+        }
         .leftContent{
             position: relative;
             width: 266px;
             margin-top: 72px;
+            margin-bottom: 50px;
+            @media (min-width: 960px){
+                margin-bottom: 0;
+            }
             .leftText{
                 color: #fe992a;
                 font-family: 'Lato', sans-serif;
@@ -184,10 +254,15 @@ font-family: 'Droid Sans', arial; */
         }
         .rightContent{
             border-left: 1px solid #eaeaea;
-            margin-top: 72px;
-            width: 649px;
-            height: 297px;
-            padding-left: 59px;
+            width: 100%;
+            padding-left: 10px;
+            @media (min-width: 960px){
+                flex-direction: row;
+                width: 649px;
+                margin-top: 72px;
+                padding-left: 59px;
+                height: 297px;
+            }
             .rightTitle{
                 color: #fe992a;
                 font-family: 'Lato', sans-serif;
@@ -202,6 +277,17 @@ font-family: 'Droid Sans', arial; */
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 28px;
+                display: none;
+                @media (min-width:960px){
+                    display: block;
+                }
+            }
+            .forPhone{
+                display: block;
+                text-align: justify;
+                @media (min-width:960px){
+                    display: none;
+                }
             }
         }
     }
@@ -209,17 +295,29 @@ font-family: 'Droid Sans', arial; */
 
 .footer{
     width: 100%;
-    min-height: 474px;
     background: #e6716f;
+    @media (min-width:960px){
+        min-height: 474px;
+    }
     .footerInside{
-        width: 960px; 
+        width: 100%; 
         min-height: inherit; 
         margin: 0 auto;
         padding-top: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        @media (min-width:960px){
+            width: 960px; 
+            padding-left: 0;
+            padding-right: 0;
+        }
         .mainWrapper{
-            width: 960px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
+            @media (min-width:960px){
+                width: 960px; 
+            }
             ul{
                 list-style: none;
                 font-size: 12px;
@@ -227,10 +325,20 @@ font-family: 'Droid Sans', arial; */
                 line-height: 24px;
                 color: #ffffff;
                 &:first-child{
-                    margin-right: 129px;
+                    @media (min-width:960px){
+                        margin-right: 129px;
+                    }
                 }
             }
             .contacts{
+                width: 100%;
+                @media (min-width:370px) and (max-width:960px){
+                    display: flex;
+                    justify-content: space-between;
+                }
+                @media (min-width:960px){
+                    width: auto;
+                }
                 .telephone{
                     margin-bottom: 23px;
                 }
@@ -239,10 +347,15 @@ font-family: 'Droid Sans', arial; */
                 font-weight: 700;
                 font-family: 'Droid Sans Bold', arial;
             }
+            .forBig{
+                display: none;
+                @media (min-width:960px){
+                    display: block;
+                }
+            }
         }
     }
 }
-
 
 
 
